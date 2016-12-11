@@ -8,6 +8,7 @@ typedef struct {
 	int screenWidth;
 	int screenHeight;
 	bool fullscreen;
+	bool clear;
 } config_t;
 
 int main(int, char**) {
@@ -17,6 +18,7 @@ int main(int, char**) {
 	config.fullscreen=true;
 	config.screenWidth=1024;
 	config.screenHeight=768;
+	config.clear=true;
 	int sdlFullscreenFlag = 0;
 
 
@@ -89,16 +91,21 @@ int main(int, char**) {
 				case SDLK_ESCAPE:
 					run = false;
 					break;
+				case SDLK_c:
+					config.clear=!config.clear;
+					break;
 				}
 				break;
 				case SDL_QUIT:
-						run = false;
+					run = false;
 				break;
 			}
 		}
 
 		//First clear the renderer
-		SDL_RenderClear(ren);
+		if(config.clear) {
+			SDL_RenderClear(ren);
+		}
 
 		ball->move(1);
 		ball->draw(ren);
