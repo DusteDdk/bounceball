@@ -1,0 +1,10 @@
+Toy example, showing how to get something on the screen with C++ and SDL2.
+To compile you need to install:
+libsdl2-dev
+libsdl2-image-dev
+
+and type:
+make
+
+To execute:
+./bounce

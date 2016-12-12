@@ -12,4 +12,4 @@ $(EXE): $(SOURCE)
 
 clean:
 
-	rm -f $(MYPROGRAM)
+	rm -f $(EXE) *.o
